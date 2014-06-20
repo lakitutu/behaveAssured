@@ -4,12 +4,26 @@ import static com.jayway.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 import com.jayway.restassured.specification.RequestSpecification;
+import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.jbehave.core.annotations.*;
 
 /**
  * Created by Robale on 2014-05-24.
  */
 public class predic8 {
+    Configuration config;
+
+    {
+        try {
+            config = new PropertiesConfiguration("configuration.properties");
+        } catch (ConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    String url = config.getString("url");
     RequestSpecification requestSpecification;
 
     @Given("A $name of client")
