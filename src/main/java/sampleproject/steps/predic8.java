@@ -12,7 +12,7 @@ import org.jbehave.core.annotations.*;
 /**
  * Created by Robale on 2014-05-24.
  */
-public class predic8 {
+public class Predic8 {
     Configuration config;
 
     {
@@ -26,7 +26,7 @@ public class predic8 {
     String url = config.getString("url");
     RequestSpecification requestSpecification;
 
-    @Given("A $name of client")
+    @Given("A name of client is $name")
     public void specifyClientName(String name) {
         requestSpecification = given().param("name",name);
     }
